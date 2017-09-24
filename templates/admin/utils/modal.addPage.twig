@@ -1,0 +1,33 @@
+<div class="modal animated fade" id="addPage" tabindex="-1" role="dialog" aria-labelledby="addPage" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="#" id='add-page-form' method="post">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">X</button>
+                    <h4 class="modal-title"> <i class="fa fa-list-alt"></i> New page</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col">
+                            <label>Page Title</label>
+                            <input class="form-control" name="title" required="required" type="text" placeholder="Page Title" />
+                        </div>
+                        <div class="col">
+                            <label for="template"> Template </label>
+                            <select class="form-control" required="required" name="template" id="template">
+                                <option value="">Select Template</option>
+                                <option value="blank"> Blank Page </option>
+                                <option value="service"> Service Page </option>
+                            </select>
+                        </div>
+                        <div class="col col-lg-12" id="add-page-msg" class='text-center'> </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+{% extends "admin/layout/dashboard.twig" %}
+
+{% block mainBlock %}
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="row pl-1 mt-3">
+            <div class="col-12">
+                <form id='page-form'>
+                    <input type="hidden" name='content' id='page-content' >
+                    <input type="hidden" name='page' value="{{page}}" >
+                    <button class="btn btn-info" type="button" id='page-update' ><i class="zmdi zmdi-save"></i> Update </button>
+                </form>
+                <div id="page-msg" class="text-capitalize"></div>
+            </div>
+        </div>
+    </div>
+    <div class="main-body back-white pt-1 ml-1 mr-2 mt-2">
+        <div class="container-fluid">
+            <div class="row" id='page-edit-area'>
+                {% include 'website/layout/'~ page ~'.twig' %}
+            </div>
+        </div>
+    </div>
+{% endblock mainBlock %}
+
+{% block script %}
+
+    <script>
+        $('#page-update').click(function(e){
+            e.preventDefault();
+            $('.editable').removeAttr('contenteditable');
+            var content =   $('#page-edit-area').html();
+                $('#page-content').val(content);
+                submit_form('page-form' , '{{ path_for('savePage') }}', 'page-msg', false);
+        });
+        $(document).ready(function(){
+            $('.editable').attr('contenteditable',true);
+        });
+        $('.editable').mouseover(function(){
+            $(this).attr('contenteditable',true);
+        });
+    </script>
+    {# mouseout #}
+{% endblock script %}

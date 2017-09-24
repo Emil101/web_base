@@ -1,0 +1,197 @@
+{% extends "website/layout/base.twig" %}
+
+{% block BodyContent %}
+        <main class="page-body">
+            <div class="row page-breadcrumb">
+                <div class="container">
+                    <ul class="breadcrumb">
+                        <li><a href="index-2.html">Home</a></li>
+                        <li>Contact Us</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="contact">
+                    <h2 class="text-center">Contact Us</h2>
+                    <div class="google-map container-fluid">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12407.97806705799!2d3.331963264229366!3d6.517140177375759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x103b8e80dd9c44fd%3A0xf6e0fa2fe4a78789!2sIlasamaja+Bus+Stop!5e0!3m2!1sen!2s!4v1501004289966" width="100%" height="500px" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <div class="container">
+                            <div class="">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container ">
+                        <div class="row contact-details">
+                            <div class="contact-office col-lg-4">
+                                <div class="col">
+                                    <h5>Address</h5>
+                                    <i class="fa fa-map-marker"></i>Kleentask Limited,
+                                    <br>Lagos, Nigeria.
+                                </div>
+                                <div class="col">
+                                    <h5>Phone 24/7</h5>
+                                    <i class="fa fa-mobile"></i>080-123-4567,
+                                </div>
+                                <div class="col">
+                                    <h5>Operating Hours</h5>
+                                    <i class="fa fa-clock-o"></i>Mon-Fri: 9:00 am – 5:00 pm
+                                    <br>Sat-Sun: 11:00 am – 16:00 pm,
+                                    <br>info@kleentaskltd.com
+                                </div>
+                                <div class="divider"></div>
+                                <h5>Look for us on</h5>
+                                <ul class="social-list">
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="contact-form col-lg-8">
+                                <h2 class="text-center">Get in Touch</h2>
+                                <form class="contact-form" id="contactForm" method="post" novalidate="novalidate">
+                                    <div class="alert alert-success text-center">
+                                        Your message was sent successfully!
+                                    </div>
+                                    <div class="alert alert-danger text-center">
+                                        Something went wrong, try refreshing and submitting the form again.
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" name="name" placeholder="Your name*">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" name="email" placeholder="Email*">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="form-control input-lg" rows="6" name="message" placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="form-group text-center">
+                                        <button type="submit" class="btn">Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {# <div class="block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h2>General Office</h2>
+                                <div class="col">
+                                    <h5>Address</h5>
+                                    <i class="fa fa-map-marker"></i>3261 Anmoore Road
+                                    <br>Brooklyn, NY 11230
+                                </div>
+                                <div class="col">
+                                    <h5>Phone 24/7</h5>
+                                    <i class="fa fa-technology"></i>800-123-4567, Fax: 718-724-3312
+                                </div>
+                                <div class="col">
+                                    <h5>Operating Hours</h5>
+                                    <i class="fa fa-clock"></i>Mon-Fri: 9:00 am – 5:00 pm
+                                    <br>Sat-Sun: 11:00 am – 16:00 pm
+                                </div>
+                                <div class="divider"></div>
+                                <h5>Look for us on</h5>
+                                <ul class="social-list">
+                                    <li><a href="#"><i class="icon-google-plus-logo"></i></a></li>
+                                    <li><a href="#"><i class="icon-facebook-logo"></i></a></li>
+                                    <li><a href="#"><i class="icon-twitter-logo"></i></a></li>
+                                    <li><a href="#"><i class="icon-instagram-logo"></i></a></li>
+                                </ul>
+                            </div>
+                            <div class="divider visible-sm visible-xs"></div>
+                            <div class="col-md-8">
+                                <h2 class="text-center h-lg h-decor">Get in Touch</h2>
+                                <form class="contact-form" id="contactForm" method="post" novalidate="novalidate">
+                                    <div class="successform text-center">
+                                        <p>Your message was sent successfully!</p>
+                                    </div>
+                                    <div class="errorform text-center">
+                                        <p>Something went wrong, try refreshing and submitting the form again.</p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" name="name" placeholder="Your name*">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" class="form-control input-lg" name="email" placeholder="Email*">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea class="textarea-custom input-lg" name="message" placeholder="Message"></textarea>
+                                    </div>
+                                    <div class="text-center">
+                                        <button type="submit" class="btn">Send Message</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="block">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <h6>Contact us to book your freequote.</h6>
+                                <ul class="marker-list">
+                                    <li>No contracts and no obligation</li>
+                                    <li>Competitive Rates</li>
+                                    <li>Top quality work</li>
+                                    <li>A service schedule designed to meet your needs</li>
+                                    <li>Proud members of the Better Business Bureau</li>
+                                    <li>We provide all our own supplies.</li>
+                                </ul>
+                            </div>
+                            <div class="clearfix visible-sm visible-xs"></div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="address-box">
+                                    <h3>Affiliate Office #1</h3>
+                                    <div class="col">
+                                        <i class="fa fa-map-marker"></i><b>New York</b>
+                                        <br> Phone: 718-724-3311
+                                        <br> Fax: 718-724-3312
+                                        <br> Email: <a href="mailto:officeone@youremail.com">officeone@youremail.com</a>
+                                        <br> 3261 Anmoore Road
+                                        <br> Brooklyn, NY 11230
+                                        <br>
+                                        <ul class="social-list social-list-sm">
+                                            <li><a href="#"><i class="icon-google-plus-logo"></i></a></li>
+                                            <li><a href="#"><i class="icon-facebook-logo"></i></a></li>
+                                            <li><a href="#"><i class="icon-twitter-logo"></i></a></li>
+                                            <li><a href="#"><i class="icon-instagram-logo"></i></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-md-4">
+                                <div class="address-box">
+                                    <h3>Affiliate Office #2</h3>
+                                    <div class="col">
+                                        <i class="fa fa-map-marker"></i><b>New York</b>
+                                        <br> Phone: 917-859-4619
+                                        <br> Fax: 917-859-4619
+                                        <br> Email: <a href="mailto:officeone@youremail.com">officetwo@youremail.com</a>
+                                        <br> 330 Hoffman Avenue
+                                        <br> Brooklyn, NY 10007
+                                        <br>
+                                        <ul class="social-list social-list-sm">
+                                            <li><a href="#"><i class="icon-google-plus-logo"></i></a></li>
+                                            <li><a href="#"><i class="icon-facebook-logo"></i></a></li>
+                                            <li><a href="#"><i class="icon-twitter-logo"></i></a></li>
+                                            <li><a href="#"><i class="icon-instagram-logo"></i></a></li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> #}
+            </div>
+        </main>
+{% endblock BodyContent %}
+
+{% block script %}
+
+{% endblock script %}
+        

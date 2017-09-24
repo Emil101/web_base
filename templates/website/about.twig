@@ -1,0 +1,57 @@
+{% extends "website/layout/base.twig" %}
+
+{% block BodyContent %}
+    {% block breadcrumb %}
+        <div class="row page-breadcrumb">
+            <div class="container">
+                <ul class="breadcrumb">
+                    <li><a href="index-2.html">Home</a></li>
+                    <li>About Us</li>
+                </ul>
+            </div>
+        </div>
+    {% endblock breadcrumb %}
+    {% include "website/layout/about.twig" %}
+    {% block testimonials %}
+        <div class="row testimonials">
+            <div class="container">
+                <h2 class="text-center" contenteditable="true">Our Dear Clients Say</h2>
+                <div class="testimonials-carousel">
+                    <div class="testimonial-item">
+                        <div class="testimonial-item-author" data-animation="zoomIn" data-animation-delay="0.5s">
+                            <img src="http://via.placeholder.com/200/333" alt="Customer">
+                        </div>
+                        <div class="testimonial-item-inside">
+                            <h3 contenteditable="true">Estela Thomas</h3>
+                            <p contenteditable="true">I would be glad to act as a phone reference for your company. Cleaning did a wonderful job and I certainly don’t mind confirming their outstanding service. If you’re thinking about hiring to clean your office building, ask them for my testimonial and call anytime.</p>
+                            <div class="rating"><span class="rating rating-4"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-item-author" data-animation="zoomIn" data-animation-delay="0.5s">
+                            <img src="http://via.placeholder.com/200/333" alt="Customer">
+                        </div>
+                        <div class="testimonial-item-inside">
+                            <h3 contenteditable="true">Stephanie Mealy</h3>
+                            <p contenteditable="true">I would be glad to act as a phone reference for your company. Cleaning did a wonderful job and I certainly don’t mind confirming their outstanding service. If you’re thinking about hiring to clean your office building.</p>
+                            <div class="rating"><span class="rating rating-4"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-item">
+                        <div class="testimonial-item-author" data-animation="zoomIn" data-animation-delay="0.5s">
+                            <img src="http://via.placeholder.com/200/333" alt="Customer">
+                        </div>
+                        <div class="testimonial-item-inside">
+                            <h3 contenteditable="true">Victoria Barry</h3>
+                            <p contenteditable="true">My husband and I are very satisfied customers and have been for over 15 years. Clean Service always keeps our home just lovely and are willing to accommodate special requests. I am glad I have a company I can trust and will do the same quality work each cleaning.</p>
+                            <div class="rating"><span class="rating rating-4"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock testimonials %}
+{% endblock BodyContent %}

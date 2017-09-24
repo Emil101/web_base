@@ -1,0 +1,196 @@
+{% extends "admin/layout/dashboard.twig" %} {% block mainBlock %}
+<!-- Main Content -->
+<div class="main-body pt-1 ml-1 mr-2 mt-2">
+
+    <div class="row">
+        <div class="col-8 p-0 dailyView">
+            <div class="card">
+                <div class="card-header">
+                    <div class="pull-left">
+                        <h6 class="card-title"><i class="fa fa-area-chart"></i> Daily page views</h6>
+                    </div>
+                    <div class="pull-right">
+                        <div class="pull-left form-group mb-0 sm-bootstrap-select mr-15">
+                            <select class="selectpicker form-control form-control-sm" data-style="form-control">
+                                        <option selected value='1'>Janaury</option>
+                                        <option value='2'>February</option>
+                                        <option value='3'>March</option>
+                                        <option value='4'>April</option>
+                                        <option value='5'>May</option>
+                                        <option value='6'>June</option>
+                                        <option value='7'>July</option>
+                                        <option value='8'>August</option>
+                                        <option value='9'>September</option>
+                                        <option value='10'>October</option>
+                                        <option value='11'>November</option>
+                                        <option value='12'>December</option>
+                                    </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <canvas id="analytics" height="168"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-4 p-0 pl-1 mostVisited">
+            <div class="col-12 mb-1 p-0">
+                <div class="card">
+                    <div class="card-body">
+                        <canvas id="referal" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 p-0">
+                <div class="card">
+                    <div class="carb-block p-1">
+                        <table class="table table-striped table-bordered Datatable">
+                            <thead>
+                                <tr>
+                                    <th>Page</th>
+                                    <th>views</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for i, mVisit in labels.mostVisited %}
+                                    <tr>
+                                        <td> {{ mVisit }} </td>
+                                        <td> {{ data.mostVisited[i] }} </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                            
+                        </table> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /Main Content -->
+{% endblock mainBlock %} 
+{% block stylesheet %}
+    <link rel="stylesheet" href="/vendors/datatables/media/css/jquery.dataTables.css"> 
+{% endblock stylesheet %} 
+{% block script %}
+    <script src="/js/moment.min.js"></script>
+    <script src="/vendors/chartjs/dist/Chart.min.js"></script>
+    <script src="/vendors/datatables/media/js/jquery.dataTables.js"></script>
+    {# $( "#success" ).load( "/not-here.php", function( response, status, xhr ) {
+      if ( status == "error" ) {
+        var msg = "Sorry but there was an error: ";
+        $( "#error" ).html( msg + xhr.status + " " + xhr.statusText );
+      }
+    }); #}
+    <script>
+        $(document).ready(function (e) {
+            var dailyView = new Chart(analytics, {
+                type: 'line',
+                data: {
+                    labels: {{ labels.pageViews |json_encode|raw }},
+                    datasets: [{
+                        label: "Daily website visits",
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: '#ddd',
+                        data: {{ data.pageViews |json_encode|raw }},
+                        fill: true,
+                    }]
+                },
+                options: {
+
+                    responsive: true,
+                    // hoverMode: 'index',
+                    // stacked: false,
+                    title: {
+                        display: true,
+                        text: 'Daily website visits'
+                    },
+                    tooltips: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    hover: {
+                        mode: 'nearest',
+                        intersect: true
+                    },
+                    spanGaps: true,
+                    elements: {
+                        line: {
+                            tension: 0.5
+                        }
+                    },
+                    scales: {
+                        xAxes: [{
+                            ticks: {
+                                autoSkip: false,
+                                maxRotation: 55,
+                                minRotation: 55,
+                                stepSize: 5,
+                                padding: 10
+                            },
+                            type: "time",
+                            time: {
+                                format: 'YYYY-MM-DD',
+                                unit: 'day',
+                                displayFormats: {
+                                    'day': 'MMM DD'
+                                },
+                                tooltipFormat: 'll',
+                                intersect: true,
+
+                            }
+                        }],
+                        yAxes: [{
+                            ticks: {
+                                // stepSize: 100,
+                                padding: 10
+                            },
+                            scaleLabel: {
+                                display: true,
+                                labelString: 'Visits'
+                            }
+                        }]
+                    }
+                }
+            });
+            var topreferal = new Chart(referal, {
+                type: 'doughnut',
+                data: {
+                    labels: {{ labels.userBrowser |json_encode|raw }},
+                    datasets: [{
+                        label: '# of Votes',
+                        data: {{ data.userBrowser |json_encode|raw }},
+                        backgroundColor: [
+                            'rgba(255, 99, 132, 0.2)',
+                            'rgba(54, 162, 235, 0.2)',
+                            'rgba(255, 206, 86, 0.2)',
+                            'rgba(75, 192, 192, 0.2)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            fontColor: '#000',
+                            fontSize: 20,
+                        }
+                    },
+                    title: {
+                        display: false,
+                        text: 'Top Referals'
+                    },
+                    animation: {
+                        animateScale: true,
+                        animateRotate: true
+                    }
+                }
+            });
+            var analyticsTable = $(".Datatable").DataTable({
+                "dom": "tip",
+                "lengthMenu": [10]
+            })
+        })
+    </script>
+{% endblock script %}

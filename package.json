@@ -1,0 +1,51 @@
+{
+  "name": "play_cms",
+  "version": "1.0.0",
+  "description": "A web Development Tool",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp",
+    "dev_strict": "gulp strict"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/playbit/play_cms.git"
+  },
+  "keywords": [
+    "CMS",
+    "Web",
+    "Design"
+  ],
+  "author": "Adele Abiola I",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/playbit/play_cms/issues"
+  },
+  "homepage": "https://gitlab.com/playbit/play_cms#README",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-connect-php": "^1.0.1",
+    "gulp-csso": "^3.0.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.0",
+    "gulp-watch": "^4.3.11"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "bootstrap-table": "^1.11.0",
+    "bourbon": "^4.3.4",
+    "chart.js": "^2.6.0",
+    "ckeditor": "^4.7.1",
+    "components-jqueryui": "^1.12.1",
+    "dropify": "^0.2.2",
+    "dropzone": "^5.1.1",
+    "jquery": "^3.2.1",
+    "popper.js": "^1.11.1"
+  }
+}

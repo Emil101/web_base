@@ -1,0 +1,80 @@
+{% extends "admin/layout/dashboard.twig" %}
+
+{% block mainBlock %}
+
+    <!-- Widget -->
+    {% set wigTag   = wigData['widget'].dom %}
+    {% set wigId    = wigData['widget'].id %}
+    {% set wigClass = wigData['widget'].class %}
+    {% set wigTitle = wigData['widget'].title %}
+    <!-- Widget Title -->
+    {% set wTtClass = wigData['widgetTitle'].class %}
+    {% set wTtDom   = wigData['widgetTitle'].dom %}
+    {% set wTtIcon  = wigData['widgetTitle'].icon %}
+    {% set wTtContent  = wigData['widgetTitle'].content %}
+    <!-- Widget Body -->
+    {% set wBoDom   = wigData['widgetBody'].dom %}
+    {% set wBoClass = wigData['widgetBody'].class %}
+    {% set wBoContent = wigData['widgetBody'].content %}
+    {% set WigChild = wigData['widgetBody'].children %}
+    {% set adWigBtn = '<button type="button" class="btn btn-primary btn-sm float-btn" data-toggle="modal" data-target="#addWigChild" ><i class="fa fa-plus-circle"></i> Add Child</button>' %}
+    {% set childWig %}
+
+    {% endset %}
+
+    
+    {% set outputWidget %}
+        <{{wigTag}} id="{{wigId}}" class="{{wigClass}}" >
+            <{{wTtDom}} class="{{wTtClass}}" >
+              <i class="{{wTtIcon}}"></i> {{wTtContent}}
+            </{{wTtDom}}>
+            <{{wBoDom}} class="{{wBoClass}}" >
+                {{ WigChild ? adWigBtn |raw}} 
+                {{wBoContent |raw}}
+                {{childWig |raw}}
+            </{{wBoDom}}>
+        </{{wigTag}}>
+    {% endset %}
+
+<div class="main-body">
+    <div class="widget pt-3 pr-2" id="widgets">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <div class="pull-left">
+                            <h6 class="card-title"> <i class="zmdi zmdi-collection-text"></i> {{wigTitle}} </h6>
+                        </div>
+                        <div class="pull-right">
+                            <div class="dropdown">
+                                <!-- Example split danger button -->
+                                <div class="btn-group">
+                                        <button type="button" class="btn btn-secondary" data-toggle="dropdown"> Options </button>
+                                        <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <i class="fa fa-cog"></i>
+                                            <span class="sr-only">Toggle Dropdown</span>
+                                        </button>
+                                        <div class="dropdown-menu">
+                                            <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editWidget"> <i class="zmdi zmdi-edit text-info"></i> Edit</a>
+                                            <a class="dropdown-item" href="#"> <i class="zmdi zmdi-delete"></i> Delete</a>
+                                        </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        {{outputWidget}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{ include('admin/utils/modal.editWidget.twig') }}
+{{ include('admin/utils/modal.addWigChild.twig') }}
+
+{% endblock mainBlock %}
+{% block script %}
+
+{% endblock script %} 

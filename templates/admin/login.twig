@@ -1,0 +1,107 @@
+{% extends "admin/layout/base.twig" %}
+{% block BodyContent %}
+
+    <div class="navbar navbar-inverse set-radius-zero">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">
+                    <img src="/images/logo.png" />
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="login-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <form class="form-horizontal" id="login-form" role="form" method="POST" action="">
+                        <div class="row">
+                            <div class="col">
+                                <h2 class="hidden-sm-down" >Please Login</h2>
+                                <hr>
+                                <div id="login-msg"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group has-info">
+                                    <label class="sr-only" for="email">Username</label>
+                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                        <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                                        <input type="text" name="username" class="form-control" id="username"
+                                            placeholder="Username" required="required" autofocus>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group has-info">
+                                    <label class="sr-only" for="password">Password</label>
+                                    <div class="input-group mb-2 mr-sm-2 mb-sm-0">
+                                        <div class="input-group-addon"><i class="fa fa-key"></i></div>
+                                        <input type="password" name="password" class="form-control" id="password"
+                                            placeholder="Password" required="required">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-check mb-2 mr-sm-2 mb-sm-0">
+                                    <label class="form-check-label">
+                                        <input class="form-check-input" name="remember"
+                                            type="checkbox" >
+                                        <span>Remember me </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col text-right">
+                                <button type="submit" class="btn btn-info" id='login-btn' ><i class="fa fa-sign-in"></i> Login</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-6 hidden-sm-down">
+                    <div class="alert alert-info">
+                        This is a free bootstrap admin template with basic pages you need to craft your project. 
+                        Use this template for free to use for personal and commercial use.
+                        <br />
+                         <strong> Some of its features are given below :</strong>
+                        <ul>
+                            <li>
+                                Responsive Design Framework Used
+                            </li>
+                            <li>
+                                Easy to use and customize
+                            </li>
+                            <li>
+                                Font awesome icons included
+                            </li>
+                            <li>
+                                Clean and light code used.
+                            </li>
+                        </ul>
+                       
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock BodyContent %}
+
+{%block script %}
+
+    <script>
+        // LOGIN 
+        $("#login-form").submit(function(e){
+            e.preventDefault();
+            submit_form('login-form' , '{{ path_for('Login') }} ' , 'login-msg',true);
+        })
+    </script>
+
+{% endblock script %}
+    

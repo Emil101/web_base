@@ -1,0 +1,20 @@
+{
+    "widget": {
+        "id": "1714528c9a294c00e9fd839be119ab25",
+        "title": "test-widget",
+        "class": "col-lg-12 col-md-6",
+        "dom": "div"
+    },
+    "widgetTitle": {
+        "class": "widget-title",
+        "dom": "div",
+        "content": "Widget Title",
+        "icon": "fa fa-home"
+    },
+    "widgetBody": {
+        "children": true,
+        "class": "jumbotron",
+        "dom": "div",
+        "content": "<h1>Widget Body Updated updated<\/h1>\r\n"
+    }
+}

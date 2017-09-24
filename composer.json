@@ -1,0 +1,35 @@
+{
+    "name": "Play CMS",
+    "description": "A web Development tool",
+    "authors": [
+        {
+            "name": "Adele Abiola I",
+            "email": "info@playbit.org",
+            "homepage": "http://www.playbit.org/"
+        }
+    ],
+    "require": {
+        "php": ">=5.5.0",
+        "propel/propel": "~2.0@dev",
+        "monolog/monolog": "^1.22",
+        "slim/slim": "^3.1",
+        "slim/php-view": "^2.0",
+        "aura/session": "^2.1",
+        "slim/twig-view": "^2.2",
+        "phpmailer/phpmailer": "^5.2",
+        "wildbit/postmark-php": "^2.3"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.2"
+    },
+    "autoload": {
+        "classmap": ["app/model/playbit/playbit/"],
+        "psr-4": {
+            "App\\": "app/",
+            "Tests\\": "tests/"
+        }
+    },
+	"scripts": {
+        "test": "phpunit"
+	}
+}

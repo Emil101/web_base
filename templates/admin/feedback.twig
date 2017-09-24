@@ -1,0 +1,109 @@
+{% extends "admin/layout/dashboard.twig" %}
+
+    {% block mainBlock %}
+		<!-- Main Content -->
+        <div class="main-body" >
+            <div class="row">
+                <div class="col-12 pt-3 p-0">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="pull-left">
+                                <h6 class="card-title"> <i class="zmdi zmdi-pin-help"></i> Cutomer's feedback</h6>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <table id="bt-table" >
+                                <thead>
+                                    <tr>
+                                        <th>SN</th>
+                                        <th>Name</th>
+                                        <th>Email</th>
+                                        <th>Phone Number</th>
+                                        <th>Message</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Item 1</td>
+                                        <td>$1</td>
+                                        <td>Item 1</td>
+                                        <td>$1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Main Content -->
+    {% endblock mainBlock %}
+
+    {% block stylesheet %}
+        {# <link rel="stylesheet" href="/vendors/datatables/media/css/jquery.dataTables.min.css"> #}
+        <link rel="stylesheet" href="/vendors/bootstrap-table/bootstrap-table.min.css">
+    {% endblock stylesheet %}
+    {% block script %}
+        <script src="/vendors/bootstrap-table/bootstrap-table.min.js"></script> 
+        <script src="/vendors/bootstrap-table/extensions/export/bootstrap-table-export.js"></script>   
+        <script src="/vendors/bootstrap-table/locale/bootstrap-table-en-US.min.js"></script> 
+
+        <script src="/vendors/bootstrap-table/extensions/mobile/bootstrap-table-mobile.js"></script>   
+        <script type="text/javascript" src="/vendors/bootstrap-table/extensions/export/libs/FileSaver/FileSaver.min.js"></script>
+        <script type="text/javascript" src="/vendors/bootstrap-table/extensions/export/libs/js-xlsx/xlsx.core.min.js"></script>
+        <script type="text/javascript" src="/vendors/bootstrap-table/extensions/export/libs/jsPDF/jspdf.min.js"></script>
+        <script type="text/javascript" src="/vendors/bootstrap-table/extensions/export/libs/jsPDF-AutoTable/jspdf.plugin.autotable.js"></script>  
+        <script src="/vendors/bootstrap-table/extensions/export/tableExport.min.js"></script>   
+
+        <script>
+            $(document).ready(function(e){
+                $('#bt-table').bootstrapTable({
+                    classes: 'table table-striped',
+                    iconsPrefix: 'fa',
+                    icons: {
+                        paginationSwitchDown: 'fa-collapse-down icon-chevron-down',
+                        paginationSwitchUp: 'fa-collapse-up icon-chevron-up',
+                        refresh: 'fa-refresh icon-refresh',
+                        toggle: 'fa-list-alt icon-list-alt',
+                        columns: 'fa-th icon-th',
+                        detailOpen: 'fa-plus icon-plus',
+                        detailClose: 'fa-minus icon-minus',
+                        export: 'fa fa-download'
+                    },
+                    pagination: true,
+                    search: true,
+                    pageList: [10, 25, 50, 100],
+                    pageSize: 10,
+                    searchOnEnterKey: true,
+                    showFooter: true,
+                    showColumns: true,
+                    showExport: true,
+                    columns: [
+                        {
+                            sortable : true,
+                            width: 10,
+                            align: 'center',
+
+                        },
+                        {
+                            sortable : true,
+                            width : 250
+                        },
+                        {
+                            sortable : true,
+                            width : 200
+                        },
+                        {
+                            width : 200
+                        }
+                    ],
+                    mobileResponsive: true,
+                    exportTypes: [ 'Excel','xlsx','pdf','doc' ],
+                    exportOptions: {
+                        fileName: 'Website Feedback'
+                    }
+                })
+            })  
+        </script>
+    {% endblock script %}

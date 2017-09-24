@@ -1,0 +1,41 @@
+.bootstrap-table {
+    ul {
+        &.dropdown-menu {
+            min-width: 200px;
+            li {
+                a {
+                    padding: 5px 10px;
+                    display: block;
+                    width: 100%;
+                }
+                &:hover {
+                    background: $light_grey;
+                }
+            }
+        }
+    }
+    .btn-default {
+        background: $blue;
+        color: #fff;
+        &:focus {
+            box-shadow: none;
+        }
+    }
+    .fixed-table-pagination {
+        padding: 0 10px;
+        .pagination {
+            .active {
+                background: $blue;
+                a {
+                    color: #fff;
+                }
+            }
+        }
+        .pagination-detail {
+            .btn-default {
+                padding: 3px 10px;
+                font-size: 12px;
+            }
+        }
+    }
+}

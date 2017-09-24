@@ -1,0 +1,117 @@
+{% extends "admin/layout/dashboard.twig" %}
+
+    {% block mainBlock %}
+		<!-- Main Content -->
+        <div class="main-body" >
+            <div class="row">
+                <div class="col-8 pt-3 p-0">
+                    <div class="card">
+                        <div class="card-header">
+                            <div class="pull-left">
+                                <h6 class="card-title"> <i class="fa fa-tags fa-fw"></i> Company Details</h6>
+                            </div>
+                            <div class="pull-right">
+                                <h6>
+                                    <span class='domain'> <i class="fa fa-globe"></i> {{ Details['DomainName'] }} </span>
+                                </h6>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <form id='company-form' action='#' >
+                                <div class="form-group">
+                                    <label for="Company-Name">Company Name</label>
+                                    <input type="text" class="form-control" required="required" name='Organisation' value="{{ Details['Organisation'] }}" placeholder="Company Name">
+                                    <small class="form-text text-info text-muted">Enter Company name</small>
+                                </div>
+                                <div class="row">
+                                    <div class="form-group col-6">
+                                        <label for="Company-Email">Company Email Address</label>
+                                        <input type="email" class="form-control" required="required" name='Email' value="{{ Details['Email'] }}" placeholder="Email Address">
+                                        <small class="form-text text-info text-muted">Email Address</small>
+                                    </div>
+                                    <div class="form-group col-6">
+                                        <label for="Company-Phone">Company Phone Number</label>
+                                        <input type="tel" class="form-control" required="required" name='Phone' value="{{ Details['Phone'] }}" placeholder="Phone Number">
+                                        <small class="form-text text-info text-muted">Phone Number</small>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Company-Address">Company Address</label>
+                                    <textarea required="required" name='Address' cols="30" rows="10" class="form-control">{{ Details['Address'] }}</textarea>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-12 text-center" id="settings-msg"></div>
+                                    <div class="col-12 text-center">
+                                        <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-save"></i> Save </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 pt-3 p-0">
+                    <div class="col-12 pr-0">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="pull-left">
+                                    <h6 class="card-title"> <i class="fa fa-support fa-fw"></i> Social Media</h6>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form action="#" id="social-form">
+                                    {% for social in Socials %}
+                                        <div class="form-group">
+                                            <div class="input-group input-group">
+                                                <i class="fa fa-{{social.Name|lower}} input-group-addon"></i>
+                                                <input type="text" class="form-control" name="{{social.Name}}" value="{{social.Username}}" placeholder="{{social.Name}} Username">
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                    <div class="form-group row">
+                                        <div class="col-12 text-center" id="social-msg"></div>
+                                        <div class="col-12 text-center">
+                                            <button type="submit" class="btn btn-primary"><i class="zmdi zmdi-save"></i> Save </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 pt-3 pr-0">
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="pull-left">
+                                    <h2 class="card-title"> <i class="fa fa-key fw"></i> Key & Tokens </h2>
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-secondary btn-sm"><i class="fa fa-plus"></i></a>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h3 class='text-center' >No Record</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Main Content -->
+    {% endblock mainBlock %}
+
+    {% block script %}
+        <script>
+            
+            // UPDATE COMPANY DETAILS 
+            $("#company-form").submit(function(e){
+                e.preventDefault();
+                submit_form('company-form' , '{{ path_for('updateDetails') }} ' , 'settings-msg',false);
+            })
+
+            // UPDATE SOCIAL MEDIA DETAILS 
+            $("#social-form").submit(function(e){
+                e.preventDefault();
+                submit_form('social-form' , '{{ path_for('updateSocials') }} ' , 'social-msg',false);
+            })
+
+        </script>
+    {% endblock script %}

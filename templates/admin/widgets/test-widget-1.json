@@ -1,0 +1,20 @@
+{
+    "widget": {
+        "title": "test-widget-1",
+        "class": "col-12",
+        "dom": "div",
+        "id": "59dd4a6d336b74301c63d31ed0a12774"
+    },
+    "widgetTitle": {
+        "class": "text text-success",
+        "dom": "div",
+        "content": "That was a nice one",
+        "icon": "fa fa-remove"
+    },
+    "widgetBody": {
+        "children": true,
+        "class": "jumbotron",
+        "dom": "div",
+        "content": "<p>save content and saved<\/p>\r\n"
+    }
+}

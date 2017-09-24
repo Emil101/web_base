@@ -1,0 +1,9 @@
+old/
+cache/
+vendor/
+.vscode/
+tests/
+node_modules/
+*.zip
+*.tar.gz
+logs*

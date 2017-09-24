@@ -1,0 +1,117 @@
+
+<div class="modal animated fade" id="addWigChild">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title"><i class="zmdi zmdi-collection-text"></i> Child Widget</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{path_for('addWidget')}}" id="addWidgetChildForm" class="form widget-form">
+                    <div class="row">
+                        <div class="col-6">
+                            <fieldset>
+                                <legend>widget info</legend>
+                                <div class="row">                            
+                                    <div class="col-12">
+                                        <strong> PID :: {{wigId}} </strong>
+                                        <input type="hidden" value="{{wigId}}" name="form[widget][PID]"> 
+                                        <input type="hidden" value="{{wigTitle}}" name="form[widget][PTitle]">  
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="class"> Class </label>
+                                            <input type="text" name="form[widget][class]" required class="form-control" placeholder="['row widget','col-12']">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <label for="class"> DOM </label>
+                                            <input type="text" name="form[widget][dom]" required class="form-control" placeholder="div">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="col-6">
+                            <fieldset>
+                                <legend>Widget Title</legend>
+                                <div class="row">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="class"> Class</label>
+                                            <input type="text" name="form[widgetTitle][class]" class="form-control" placeholder="eg. widgetTitle">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="class"> DOM</label>
+                                            <input type="text" name="form[widgetTitle][dom]" class="form-control" placeholder="eg. div">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="title">Content</label>
+                                            <input type="text" class="form-control" name="form[widgetTitle][content]" placeholder="eg. Title Content">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label for="title">Icon</label>
+                                            <input type="text" class="form-control" name="form[widgetTitle][icon]" placeholder="eg. fa fa-***">
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <fieldset>
+                        <legend>Widget Body</legend>
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="form-input">
+                                    <label for="wigChild" class="custom-control custom-checkbox">
+                                        <input type="checkbox" name="form[widgetBody][children]" value="true" id="wigChild" class="custom-control-input">
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">Has Child Widget</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="class"> Class</label>
+                                    <input type="text" name="form[widgetBody][class]" class="form-control" placeholder="eg. widgetBody">
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <label for="class"> DOM</label>
+                                    <input type="text" name="form[widgetBody][dom]" class="form-control" placeholder="eg. div">
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-group">
+                                    <label for="title">Content</label>
+                                    <textarea rows="" class="form-control ckeditor" name="form[widgetBody][content]" id="wigEditContent" cols=""></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                    <div class="modal-footer">
+                        <div class="row full-width">
+                            <div class="col-lg-7">
+                                <div id="wig-msg" class="text-right" ></div>
+                            </div>
+                            <div class="col-lg-5 text-right">
+                                <button type="submit" class="btn btn-primary"> <i class="zmdi zmdi-save"></i> Save</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

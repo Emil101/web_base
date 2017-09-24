@@ -1,0 +1,114 @@
+
+		<div class="fixed-sidebar-left">
+			<ul class="nav navbar-nav side-nav nicescroll-bar">
+				<li class="navigation-header">
+					<span>Main</span> 
+					<i class="zmdi zmdi-more"></i>
+				</li>
+				<li>
+					<a href="{{ path_for('index') }}" class="{{ is_current_path('Dashboard') ? 'active' : '' }}" >
+                        <div class="pull-left">
+                            <i class="zmdi zmdi-landscape"></i>
+                            <span class="right-nav-text">Dashboard</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+				</li>
+				<li>
+					<a href="{{ path_for('homepage') }}" class="{{ is_current_path('homepage') ? 'active' : '' }}">
+                        <div class="pull-left">
+                            <i class="zmdi zmdi-home"></i>
+                            <span class="right-nav-text">Homepage</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+				</li>
+				<li>
+					<a href="{{ path_for('about') }}" class="{{ is_current_path('about') ? 'active' : '' }}">
+                        <div class="pull-left">
+                            <i class="zmdi zmdi-flag"></i>
+                            <span class="right-nav-text">About Us</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+				</li>
+				<li>
+					<a href="services" data-toggle="collapse" data-target="#services_dr">
+                        <div class="pull-left">
+                            <i class="zmdi zmdi-group"></i>
+                            <span class="right-nav-text">Services</span>
+                        </div>
+                        <div class="pull-right">
+                            <i class="zmdi zmdi-caret-down"></i>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+					<ul id="services_dr" class="collapse collapse-level-1">
+						<li>
+							<a  href="#">Analytical</a>
+						</li>
+						<li>
+							<a  href="#">Demographic</a>
+						</li>
+						<li>
+							<a href="#">Project</a>
+						</li>
+						<li>
+							<a href="#">profile</a>
+						</li>
+					</ul>
+				</li>
+				<li><hr class="light-grey-hr mb-10"/></li>
+				<li class="navigation-header">
+					<span>component</span> 
+					<i class="zmdi zmdi-more"></i>
+				</li>
+				<li>
+					<a href="#" data-toggle="collapse" data-target="#add_on_dr" class="{{ is_current_path('viewWidget') ? 'active' : '' }}">
+                        <div class="pull-left">
+							<i class="zmdi zmdi-collection-text"></i>
+							<span class="right-nav-text">Widgets</span>
+                        </div>
+                        <div class="pull-right">
+                            <i class="zmdi zmdi-caret-down"></i>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+					<ul id="add_on_dr" class="collapse collapse-level-1">
+						{% for widget in widgets %}
+							<li>
+								<a href="{{ path_for('viewWidget') }}{{widget}}" > {{ widget }} </a>
+							</li>
+						{% endfor %}
+						<li> <a href="#" data-toggle="modal" data-target="#addWidget"><i class="fa fa-plus-circle"></i>  <span class="text-sm" > Create Widget </span></a>  </li>
+					</ul> 
+				</li>
+				<li>
+					<a href="{{ path_for('settings') }}" class="{{ is_current_path('settings') ? 'active' : '' }}">
+                        <div class="pull-left">
+                            <i class="zmdi zmdi-settings"></i>
+                            <span class="right-nav-text">Settings</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+				</li>
+				<li>
+					<a href="{{ path_for('feedback') }}" class="{{ is_current_path('feedback') ? 'active' : '' }}" >
+                        <div class="pull-left">
+                            <i class="zmdi zmdi-pin-help"></i>
+                            <span class="right-nav-text">Feedbacks</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+				</li>
+				<li>
+					<a href="{{ path_for('Logout') }}">
+                        <div class="pull-left">
+                            <i class="zmdi zmdi-power"></i>
+                            <span class="right-nav-text">Logout</span>
+                        </div>
+                        <div class="clearfix"></div>
+                    </a>
+				</li>
+			</ul>
+		</div>  
